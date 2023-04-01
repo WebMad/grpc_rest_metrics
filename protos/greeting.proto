@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greeting;
+
+service GreetingService {
+  rpc GetUser(GreetingRequest) returns (GreetingResponse) {}
+}
+
+message GreetingRequest {
+  string name = 1;
+  string requestCreatedAt = 2;
+}
+
+message GreetingResponse {
+  string greeting = 1;
+  string requestCreatedAt = 2;
+  string requestAcceptedAt = 3;
+  string responseCreatedAt = 4;
+}

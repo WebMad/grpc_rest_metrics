@@ -1,0 +1,8 @@
+.idea
+*.freezed.dart
+*.g.dart
+
+*.pb.dart
+*.pbenum.dart
+*.pbgrpc.dart
+*.pbjson.dart

@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package users;
+
+service UsersService {
+  rpc GetUser(GetUsersRequest) returns (GetUsersResponse) {}
+}
+
+message GetUsersRequest {
+  repeated User users = 1;
+  string requestCreatedAt = 2;
+}
+
+message GetUsersResponse {
+  int32 count = 1;
+  string requestCreatedAt = 2;
+  string requestAcceptedAt = 3;
+  string responseCreatedAt = 4;
+}
+
+message User {
+  string gender = 1;
+  Location location = 2;
+  string email = 3;
+  UserId id = 4;
+}
+
+message Location {
+  Street street = 1;
+  string city = 2;
+  string state = 3;
+  string country = 4;
+  int32 postcode = 5;
+  Coordinates coordinates = 6;
+  Timezone timezone = 7;
+}
+
+message Timezone {
+  string offset = 1;
+  string description = 2;
+}
+
+message Coordinates {
+  string latitude = 1;
+  string longitude = 2;
+}
+
+message Street {
+  int32 number = 1;
+  string name = 2;
+}
+
+message UserId {
+  string name = 1;
+  string value = 2;
+}

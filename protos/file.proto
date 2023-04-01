@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package file;
+
+service FileService {
+  rpc GetUser(FileRequest) returns (FileResponse) {}
+}
+
+message FileRequest {
+  bytes file = 1;
+  string requestCreatedAt = 2;
+}
+
+message FileResponse {
+  int32 size = 1;
+  string requestCreatedAt = 2;
+  string requestAcceptedAt = 3;
+  string responseCreatedAt = 4;
+}
