@@ -9,8 +9,6 @@ class FileResponse with _$FileResponse {
   const factory FileResponse({
     required int size,
     required String requestCreatedAt,
-    required String requestAcceptedAt,
-    required String responseCreatedAt,
   }) = _FileResponse;
 
   factory FileResponse.fromJson(Map<String, dynamic> json) =>

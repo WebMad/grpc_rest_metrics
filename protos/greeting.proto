@@ -3,7 +3,7 @@ syntax = "proto3";
 package greeting;
 
 service GreetingService {
-  rpc GetUser(GreetingRequest) returns (GreetingResponse) {}
+  rpc Greeting(GreetingRequest) returns (GreetingResponse) {}
 }
 
 message GreetingRequest {
@@ -14,6 +14,4 @@ message GreetingRequest {
 message GreetingResponse {
   string greeting = 1;
   string requestCreatedAt = 2;
-  string requestAcceptedAt = 3;
-  string responseCreatedAt = 4;
 }

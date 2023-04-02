@@ -32,7 +32,7 @@ class UsersGrpcCubit extends Cubit<UsersGrpcState> {
 
       final List<TestCaseResult> testCaseResults = [];
       for (var usersLength = 10;
-          usersLength < users.length;
+          usersLength <= users.length;
           usersLength += 10) {
         final usersToSend = users.sublist(0, usersLength);
 
@@ -42,7 +42,6 @@ class UsersGrpcCubit extends Cubit<UsersGrpcState> {
             usersServiceClient,
           );
           testCaseResults.add(result);
-          print(result);
         }
       }
 
@@ -64,11 +63,10 @@ class UsersGrpcCubit extends Cubit<UsersGrpcState> {
       requestCreatedAt: DateTime.now().microsecondsSinceEpoch.toString(),
     );
 
-    final requestVolume = request.writeToBuffer().length;
-
     final response = await usersServiceClient.getUser(request);
-
     final responseAcceptedAt = DateTime.now().microsecondsSinceEpoch;
+
+    final requestVolume = request.writeToBuffer().length;
 
     final responseVolume = response.writeToBuffer().length;
 
@@ -76,9 +74,7 @@ class UsersGrpcCubit extends Cubit<UsersGrpcState> {
       countRecords: response.count,
       requestVolumeInBytes: requestVolume,
       responseVolumeInBytes: responseVolume,
-      requestTime: int.parse(response.requestAcceptedAt) -
-          int.parse(response.requestCreatedAt),
-      responseTime: int.parse(response.responseCreatedAt) - responseAcceptedAt,
+      requestTime: responseAcceptedAt - int.parse(response.requestCreatedAt),
     );
   }
 

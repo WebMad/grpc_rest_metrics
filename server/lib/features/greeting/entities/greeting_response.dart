@@ -9,8 +9,6 @@ class GreetingResponse with _$GreetingResponse {
   const factory GreetingResponse({
     required String greeting,
     required String requestCreatedAt,
-    required String requestAcceptedAt,
-    required String responseCreatedAt,
   }) = _GreetingResponse;
 
   factory GreetingResponse.fromJson(Map<String, dynamic> json) =>

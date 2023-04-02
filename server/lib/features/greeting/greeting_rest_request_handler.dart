@@ -13,13 +13,9 @@ class GreetingRestRequestHandler extends RestRequestHandler {
 
     final greetingRequest = GreetingRequest.fromJson(json.decode(bodyString));
 
-    final requestAcceptedAt = DateTime.now().microsecondsSinceEpoch.toString();
-
     final response = request.response;
 
     response.write(json.encode(GreetingResponse(
-      responseCreatedAt: DateTime.now().microsecondsSinceEpoch.toString(),
-      requestAcceptedAt: requestAcceptedAt,
       requestCreatedAt: greetingRequest.requestCreatedAt,
       greeting: "Hello, ${greetingRequest.name}",
     ).toJson()));

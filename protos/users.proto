@@ -14,8 +14,6 @@ message GetUsersRequest {
 message GetUsersResponse {
   int32 count = 1;
   string requestCreatedAt = 2;
-  string requestAcceptedAt = 3;
-  string responseCreatedAt = 4;
 }
 
 message User {

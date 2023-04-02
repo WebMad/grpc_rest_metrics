@@ -8,7 +8,7 @@ Future<void> jsonRestServer({required String host, required int port}) async {
   server.listen((HttpRequest request) async {
     final handlerRegistry = RestRequestHandlerRegistry();
 
-    handlerRegistry.getHandler(request.uri.path)?.handleRequest(request);
+    await handlerRegistry.getHandler(request.uri.path)?.handleRequest(request);
 
     request.response.close();
   });

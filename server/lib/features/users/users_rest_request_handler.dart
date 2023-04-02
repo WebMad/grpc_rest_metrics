@@ -20,8 +20,6 @@ class UsersRestRequestHandler extends RestRequestHandler {
     response.write(json.encode(UsersResponse(
       count: usersRequest.users.length,
       requestCreatedAt: usersRequest.requestCreatedAt,
-      requestAcceptedAt: requestAcceptedAt,
-      responseCreatedAt: DateTime.now().microsecondsSinceEpoch.toString(),
     ).toJson()));
   }
 }

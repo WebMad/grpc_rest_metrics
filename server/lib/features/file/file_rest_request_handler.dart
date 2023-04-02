@@ -16,13 +16,9 @@ class FileRestRequestHandler extends RestRequestHandler {
 
     final bytesLength = (await request.toList()).length;
 
-    final requestAcceptedAt = DateTime.now().microsecondsSinceEpoch.toString();
-
     request.response.write(json.encode(FileResponse(
       size: bytesLength,
       requestCreatedAt: requestCreatedAt,
-      requestAcceptedAt: requestAcceptedAt,
-      responseCreatedAt: DateTime.now().microsecondsSinceEpoch.toString(),
     ).toJson()));
   }
 }

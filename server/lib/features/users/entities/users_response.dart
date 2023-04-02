@@ -9,8 +9,6 @@ class UsersResponse with _$UsersResponse {
   const factory UsersResponse({
     required int count,
     required String requestCreatedAt,
-    required String requestAcceptedAt,
-    required String responseCreatedAt,
   }) = _UsersResponse;
 
   factory UsersResponse.fromJson(Map<String, dynamic> json) =>

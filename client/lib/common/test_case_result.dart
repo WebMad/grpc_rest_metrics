@@ -10,7 +10,6 @@ class TestCaseResult with _$TestCaseResult {
     required int requestVolumeInBytes,
     required int responseVolumeInBytes,
     required int requestTime,
-    required int responseTime,
   }) = _TestCaseResult;
 
   factory TestCaseResult.fromJson(Map<String, dynamic> json) =>
