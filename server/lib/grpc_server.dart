@@ -9,7 +9,12 @@ Future<void> grpcServer({required String host, required int port}) async {
     GreetingGrpcServiceImpl(),
     FileGrpcServiceImpl(),
   ]);
-  await server.serve(address: host, port: port);
+
+  await server.serve(
+    address: host,
+    port: port,
+    shared: true,
+    security: ServerLocalCredentials(),
+  );
   print('Grpc server listening on port ${server.port}...');
-  await server.shutdown();
 }
